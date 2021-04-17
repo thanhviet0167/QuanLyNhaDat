@@ -117,41 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="81-819571_icon-blog-blog-hd-png-download" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\81-819571_icon-blog-blog-hd-png-download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="585525" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\585525.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="2791948_login-icon-login-account-icon-png-download" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2791948_login-icon-login-account-icon-png-download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="business+costume+male+man+office+user+icon-1320196264882354682" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\business+costume+male+man+office+user+icon-1320196264882354682.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="home-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="5-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\5-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="client" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\client.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="589-5899802_png-file-svg-scope-sight-png-clipart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\589-5899802_png-file-svg-scope-sight-png-clipart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user-male" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user-male.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="reset-password-icon-29" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reset-password-icon-29.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="247-2473442_app-rental-comments-rental-icon-png-transparent-png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\247-2473442_app-rental-comments-rental-icon-png-transparent-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="nhanxet" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nhanxet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+  <metadata name="Xoa.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="XemTinhTrang.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

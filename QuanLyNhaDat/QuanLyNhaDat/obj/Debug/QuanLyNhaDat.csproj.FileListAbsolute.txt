@@ -14,3 +14,6 @@ D:\HQTCSDL\QuanLyNhaDat\QuanLyNhaDat\obj\Debug\QuanLyNhaDat.KhachHang.resources
 D:\HQTCSDL\QuanLyNhaDat\QuanLyNhaDat\obj\Debug\QuanLyNhaDat.ThongTinKH.resources
 D:\HQTCSDL\QuanLyNhaDat\QuanLyNhaDat\obj\Debug\QuanLyNhaDat.TimKiemNha.resources
 D:\HQTCSDL\QuanLyNhaDat\QuanLyNhaDat\obj\Debug\QuanLyNhaDat.LichSuKH.resources
+D:\HQTCSDL\QuanLyNhaDat\QuanLyNhaDat\obj\Debug\QuanLyNhaDat.NhanVien.resources
+D:\HQTCSDL\QuanLyNhaDat\QuanLyNhaDat\obj\Debug\QuanLyNhaDat.ThemNhacs.resources
+D:\HQTCSDL\QuanLyNhaDat\QuanLyNhaDat\obj\Debug\QuanLyNhaDat.NhanVien_QuanLyNha.resources

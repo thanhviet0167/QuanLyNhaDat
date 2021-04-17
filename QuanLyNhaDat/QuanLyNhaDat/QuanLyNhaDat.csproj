@@ -76,8 +76,26 @@
     <Compile Include="LichSuKH.Designer.cs">
       <DependentUpon>LichSuKH.cs</DependentUpon>
     </Compile>
+    <Compile Include="NhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien.Designer.cs">
+      <DependentUpon>NhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien_QuanLyNha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien_QuanLyNha.Designer.cs">
+      <DependentUpon>NhanVien_QuanLyNha.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThemNhacs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemNhacs.Designer.cs">
+      <DependentUpon>ThemNhacs.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThongTinKH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +123,12 @@
     <EmbeddedResource Include="LichSuKH.resx">
       <DependentUpon>LichSuKH.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien.resx">
+      <DependentUpon>NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien_QuanLyNha.resx">
+      <DependentUpon>NhanVien_QuanLyNha.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -115,6 +139,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ThemNhacs.resx">
+      <DependentUpon>ThemNhacs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ThongTinKH.resx">
       <DependentUpon>ThongTinKH.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +190,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\247-2473442_app-rental-comments-rental-icon-png-transparent-png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\client.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nhanxet.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -238,7 +238,50 @@ namespace QuanLyNhaDat
                     var index = dataGridView1.Columns[e.RowIndex].Index;
                     
                     Console.Out.WriteLine(dataGridView1.Rows[e.RowIndex].Cells["MaNha"].FormattedValue.ToString());
-                   
+                    string ngay = DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day;
+                    Console.Out.WriteLine(ngay);
+                    String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=NhanVien;Password=C";
+
+                    sqlCon = new SqlConnection(strConnect);
+                    sqlCon.Open();
+                    string MaMua = "";
+                    string sqlSelect = "SELECT * FROM MUA_NHA";
+                    SqlCommand cmd = new SqlCommand(sqlSelect, sqlCon);
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        MaMua = Convert.ToString(dr["MaMua"]);
+                    }
+                    String str = null;
+                    for(int i = MaMua.Length-3; i < MaMua.Length; i++)
+                    {
+                        str += MaMua[i];
+                    }
+                    Console.Out.WriteLine(str);
+                        
+                    string new_MaMua = "MaMua" + this.findSum(str,"1");
+                    Console.Out.WriteLine(new_MaMua);
+                    sqlCon.Close();
+
+
+                    ///
+                    sqlCon = new SqlConnection(strConnect);
+                    sqlCon.Open();
+                    string sqlInsert = "INSERT INTO MUA_NHA VALUES (@MaMua, @MaKH, @MaNha, @GiaBan, @NgayMua, @DieuKien)";
+                    SqlCommand cmd_tmp = new SqlCommand(sqlInsert, sqlCon);
+
+                    cmd_tmp.Parameters.AddWithValue("MaMua", new_MaMua);
+                    cmd_tmp.Parameters.AddWithValue("MaKH", "KH001");
+                    cmd_tmp.Parameters.AddWithValue("MaNha", dataGridView1.Rows[e.RowIndex].Cells["MaNha"].FormattedValue.ToString());
+                    cmd_tmp.Parameters.AddWithValue("GiaBan", Convert.ToDouble(dataGridView1.Rows[e.RowIndex].Cells["TienThue"].FormattedValue.ToString())*3);
+                    cmd_tmp.Parameters.AddWithValue("NgayMua", ngay);
+                    cmd_tmp.Parameters.AddWithValue("DieuKien", "Dat coc 70%");
+
+                    cmd_tmp.ExecuteNonQuery();
+                    sqlCon.Close();
+
+                    MessageBox.Show("Mua nha thanh cong");
+
 
                 }
 
@@ -254,11 +297,108 @@ namespace QuanLyNhaDat
 
                         Console.Out.WriteLine(dataGridView1.Rows[e.RowIndex].Cells["MaNha"].FormattedValue.ToString());
 
+                        String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=NhanVien;Password=C";
+
+                        sqlCon = new SqlConnection(strConnect);
+                        sqlCon.Open();
+                        string MaMua = "";
+                        string sqlSelect = "SELECT * FROM THUE_NHA";
+                        SqlCommand cmd = new SqlCommand(sqlSelect, sqlCon);
+                        SqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            MaMua = Convert.ToString(dr["MaThue"]);
+                        }
+                        String str = null;
+                        for (int i = MaMua.Length - 3; i < MaMua.Length; i++)
+                        {
+                            str += MaMua[i];
+                        }
+                        Console.Out.WriteLine(str);
+
+                        string new_MaMua = "MT" + this.findSum(str, "1");
+                        Console.Out.WriteLine(new_MaMua);
+                        sqlCon.Close();
+
+
+                        ///
+                        sqlCon = new SqlConnection(strConnect);
+                        sqlCon.Open();
+                        string sqlInsert = "INSERT INTO THUE_NHA VALUES (@MaThue, @MaKH, @MaNha, @NgayDangKy, @NgayHetHan)";
+                        SqlCommand cmd_tmp = new SqlCommand(sqlInsert, sqlCon);
+
+                        cmd_tmp.Parameters.AddWithValue("MaThue", new_MaMua);
+                        cmd_tmp.Parameters.AddWithValue("MaKH", "KH001");
+                        cmd_tmp.Parameters.AddWithValue("MaNha", dataGridView1.Rows[e.RowIndex].Cells["MaNha"].FormattedValue.ToString());
+                
+                        cmd_tmp.Parameters.AddWithValue("NgayDangKy", dataGridView1.Rows[e.RowIndex].Cells["NgayDangKy"].FormattedValue.ToString());
+                        cmd_tmp.Parameters.AddWithValue("NgayHetHan", dataGridView1.Rows[e.RowIndex].Cells["NgayHetHan"].FormattedValue.ToString());
+
+
+                        cmd_tmp.ExecuteNonQuery();
+                        sqlCon.Close();
+                        MessageBox.Show("Thue nha thanh cong");
 
                     }
 
                 }
             }
+        }
+
+        private string findSum(string str1, string str2)
+        {
+            
+            if (str1.Length > str2.Length)
+            {
+                string t = str1;
+                str1 = str2;
+                str2 = t;
+            }
+
+            
+            string str = "";
+
+           
+            int n1 = str1.Length, n2 = str2.Length;
+
+           
+            char[] ch = str1.ToCharArray();
+            Array.Reverse(ch);
+            str1 = new string(ch);
+            char[] ch1 = str2.ToCharArray();
+            Array.Reverse(ch1);
+            str2 = new string(ch1);
+
+            int carry = 0;
+            for (int i = 0; i < n1; i++)
+            {
+                
+                int sum = ((int)(str1[i] - '0') +
+                        (int)(str2[i] - '0') + carry);
+                str += (char)(sum % 10 + '0');
+
+                
+                carry = sum / 10;
+            }
+
+          
+            for (int i = n1; i < n2; i++)
+            {
+                int sum = ((int)(str2[i] - '0') + carry);
+                str += (char)(sum % 10 + '0');
+                carry = sum / 10;
+            }
+
+       
+            if (carry > 0)
+                str += (char)(carry + '0');
+
+          
+            char[] ch2 = str.ToCharArray();
+            Array.Reverse(ch2);
+            str = new string(ch2);
+
+            return str;
         }
 
         private void button2_Click(object sender, EventArgs e)
