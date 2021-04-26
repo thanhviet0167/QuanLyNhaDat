@@ -45,7 +45,7 @@ namespace QuanLyNhaDat
 
         private void LoadThongTin()
         {
-            String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=NhanVien;Password=C";
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=NhanVien;Password=C";
 
             sqlCon = new SqlConnection(strConnect);
             sqlCon.Open();
@@ -80,7 +80,7 @@ namespace QuanLyNhaDat
 
         private void SaveThongTin()
         {
-            String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=NhanVien;Password=C";
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=NhanVien;Password=C";
 
             sqlCon = new SqlConnection(strConnect);
             sqlCon.Open();

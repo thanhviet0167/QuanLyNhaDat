@@ -26,10 +26,36 @@ namespace QuanLyNhaDat
             DataLoad.Visible = false;
             FormBaiDang.Visible = false;
             ThongTin.Visible = true;
+            button6.Visible = true;
+            this.getInfo();
             
         }
 
-       
+        public void getInfo()
+        {
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=ChuNha;Password=B";
+
+            sqlCon = new SqlConnection(strConnect);
+            sqlCon.Open();
+
+            string sqlSelect = "SELECT * FROM CHU_NHA WHERE MaChuNha = N'MCN001'";
+            SqlCommand cmd = new SqlCommand(sqlSelect, sqlCon);
+            SqlDataReader dr = cmd.ExecuteReader();
+            string hoten = "", diachi ="", sdt = "", macn = "";
+            Boolean b = true;
+            while (dr.Read())
+            {
+                macn = Convert.ToString(dr["MaChuNha"]);
+                hoten = Convert.ToString(dr["HoTen"]);
+                sdt = Convert.ToString(dr["Sdt"]);
+                diachi = Convert.ToString(dr["DiaChi"]);
+            }
+            txtHoTen.Text = hoten;
+            txtMaChuNha.Text = macn;
+            txtSdt.Text = sdt;
+            txtAdress.Text = diachi;
+            sqlCon.Close();
+        }
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -51,6 +77,9 @@ namespace QuanLyNhaDat
             txtHoTen.Enabled = false;
             txtSdt.Enabled = false;
             txtAdress.Enabled = false;
+            buttonHuy.Visible = false;
+            buttonSave.Visible = false;
+            button6.Visible = false;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -58,10 +87,13 @@ namespace QuanLyNhaDat
             ThongTin.Visible = false;
             FormBaiDang.Visible = false;
             DataLoad.Visible = false;
+            button6.Visible = false;
+            buttonHuy.Visible = false;
+            buttonSave.Visible = false;
             txtDate.Clear();
             txtMaChuNha.Clear();
             txtMaNha.Clear();
-        
+            
          
         }
 
@@ -70,7 +102,7 @@ namespace QuanLyNhaDat
             
             if(txtMCN.Text != "" && txtMaNha.Text != "" && txtDate.Text != "" && (radioButton1.Checked || radioButton2.Checked))
             {
-                String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=ChuNha;Password=B";
+                String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=ChuNha;Password=B";
 
                 sqlCon = new SqlConnection(strConnect);
                 sqlCon.Open();
@@ -91,6 +123,7 @@ namespace QuanLyNhaDat
                 txtDate.Clear();
                 txtMaChuNha.Clear();
                 txtMaNha.Clear();
+               
                 MessageBox.Show("Tao bai dang thanh cong");
                 cmd.ExecuteNonQuery();
 
@@ -113,7 +146,7 @@ namespace QuanLyNhaDat
                 }
                 else
                 {
-                    String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=ChuNha;Password=B";
+                    String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=ChuNha;Password=B";
 
                     sqlCon = new SqlConnection(strConnect);
                     sqlCon.Open();
@@ -196,7 +229,7 @@ namespace QuanLyNhaDat
             txtMaNha.Clear();
 
             
-            String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=ChuNha;Password=B";
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=ChuNha;Password=B";
 
             sqlCon = new SqlConnection(strConnect);
             sqlCon.Open();
@@ -208,6 +241,116 @@ namespace QuanLyNhaDat
             dt.Load(dr);
             dataGridView1.DataSource = dt;
             sqlCon.Close();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            buttonHuy.Visible = true;
+            buttonSave.Visible = true;
+            button6.Visible = false;
+   
+            txtHoTen.Enabled = true;
+            txtSdt.Enabled = true;
+            txtAdress.Enabled = true;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+           
+        }
+
+        public void getAll()
+        {
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=ChuNha;Password=B";
+
+            sqlCon = new SqlConnection(strConnect);
+            sqlCon.Open();
+
+            string sqlSelect = "SELECT * FROM BAI_DANG";
+            SqlCommand cmd = new SqlCommand(sqlSelect, sqlCon);
+            SqlDataReader dr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            dataGridView1.DataSource = dt;
+            sqlCon.Close();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                if (MessageBox.Show("Ban muon mua xoa bai viet nay?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                    == DialogResult.Yes)
+                {
+                   
+                    String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=ChuNha;Password=B";
+
+                    sqlCon = new SqlConnection(strConnect);
+                    sqlCon.Open();
+                    string mabd = dataGridView1.Rows[e.RowIndex].Cells["MaBaiDang"].FormattedValue.ToString();
+                    string sqlDelete = "Delete from BAI_DANG where MaBaiDang = N'" + mabd + "'";
+                    SqlCommand cmd = new SqlCommand(sqlDelete, sqlCon);
+                    SqlDataReader dr = cmd.ExecuteReader();
+              
+                   
+                    sqlCon.Close();
+
+                    MessageBox.Show("Xoa bai dang thanh cong");
+
+                    this.getAll();
+
+                }
+              
+
+            }
+        }
+
+        private void buttonHuy_Click(object sender, EventArgs e)
+        {
+            buttonHuy.Visible = false;
+            buttonSave.Visible = false;
+            this.getInfo();
+            txtMaChuNha.Enabled = false;
+            txtHoTen.Enabled = false;
+            txtSdt.Enabled = false;
+            txtAdress.Enabled = false;
+        }
+
+      
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if(txtHoTen.Text.Length > 0 && txtAdress.Text.Length > 0  && txtSdt.Text.Length > 0)
+            {
+                String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=ChuNha;Password=B";
+
+                sqlCon = new SqlConnection(strConnect);
+                sqlCon.Open();
+                
+                string sqlUpdate = "Update CHU_NHA SET HoTen = N'" + txtHoTen.Text + "', Sdt = N'" + txtSdt.Text + "', DiaChi = " +
+                    "N'" + txtAdress.Text + "' Where MaChuNha = N'MCN001'";
+                SqlCommand cmd = new SqlCommand(sqlUpdate, sqlCon);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+
+                sqlCon.Close();
+
+                MessageBox.Show("Lua thong tin thanh cong");
+
+             
+                buttonHuy.Visible = false;
+                buttonSave.Visible = false;
+                this.getInfo();
+                txtMaChuNha.Enabled = false;
+                txtHoTen.Enabled = false;
+                txtSdt.Enabled = false;
+                txtAdress.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Dien thieu thong tin");
+
+            }
         }
     }
 }

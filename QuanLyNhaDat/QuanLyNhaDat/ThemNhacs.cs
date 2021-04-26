@@ -79,7 +79,7 @@ namespace QuanLyNhaDat
 
         private Boolean check_exist_MaChiNhanh(String MaChiNhanh)
         {
-            String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=NhanVien;Password=C";
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=NhanVien;Password=C";
 
             sqlCon = new SqlConnection(strConnect);
             sqlCon.Open();
@@ -101,7 +101,7 @@ namespace QuanLyNhaDat
 
         private Boolean check_exist_MaNhanVien(String MaNhanVien)
         {
-            String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=NhanVien;Password=C";
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=NhanVien;Password=C";
 
             sqlCon = new SqlConnection(strConnect);
             sqlCon.Open();
@@ -123,7 +123,7 @@ namespace QuanLyNhaDat
 
         private Boolean check_exist_MaLoaiNha(String MaLoaiNha)
         {
-            String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=NhanVien;Password=C";
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=NhanVien;Password=C";
 
             sqlCon = new SqlConnection(strConnect);
             sqlCon.Open();
@@ -145,7 +145,7 @@ namespace QuanLyNhaDat
 
         private Boolean check_exist_MaChuNha(String MaChuNha)
         {
-            String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=NhanVien;Password=C";
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=NhanVien;Password=C";
 
             sqlCon = new SqlConnection(strConnect);
             sqlCon.Open();
@@ -167,7 +167,7 @@ namespace QuanLyNhaDat
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=NhanVien;Password=C";
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=NhanVien;Password=C";
 
             sqlCon = new SqlConnection(strConnect);
             sqlCon.Open();
@@ -332,7 +332,7 @@ namespace QuanLyNhaDat
             if(check == 10)
             {
                 Console.Out.WriteLine("Tao thanh cong");
-                strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=NhanVien;Password=C";
+                strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=NhanVien;Password=C";
 
                 sqlCon = new SqlConnection(strConnect);
                 sqlCon.Open();
@@ -382,7 +382,8 @@ namespace QuanLyNhaDat
 
         private void buttonThemNha_Click(object sender, EventArgs e)
         {
-           
+            this.Hide();
+            new NhanVien_QuanLyNha().Show();
         }
     }
 }

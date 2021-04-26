@@ -30,23 +30,24 @@ namespace QuanLyNhaDat
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -54,7 +55,6 @@ namespace QuanLyNhaDat
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -78,6 +78,54 @@ namespace QuanLyNhaDat
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(702, 748);
             this.panel1.TabIndex = 3;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.button7.Location = new System.Drawing.Point(50, 672);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(149, 38);
+            this.button7.TabIndex = 13;
+            this.button7.Text = "Quản lý hợp đồng";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.White;
+            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox8.Image = global::QuanLyNhaDat.Properties.Resources._5_512;
+            this.pictureBox8.Location = new System.Drawing.Point(50, 522);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(150, 144);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 12;
+            this.pictureBox8.TabStop = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.button6.Location = new System.Drawing.Point(499, 445);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(149, 37);
+            this.button6.TabIndex = 11;
+            this.button6.Text = "Nhận xét";
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.MintCream;
+            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox7.Image = global::QuanLyNhaDat.Properties.Resources.nhanxet;
+            this.pictureBox7.Location = new System.Drawing.Point(498, 295);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(150, 144);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 10;
+            this.pictureBox7.TabStop = false;
             // 
             // button5
             // 
@@ -127,6 +175,7 @@ namespace QuanLyNhaDat
             this.button2.TabIndex = 6;
             this.button2.Text = "Quản lý nhà";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -139,40 +188,7 @@ namespace QuanLyNhaDat
             this.button1.TabIndex = 5;
             this.button1.Text = "Xem thông tin";
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(825, 200);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 25);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "NV001";
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.button6.Location = new System.Drawing.Point(499, 445);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(149, 37);
-            this.button6.TabIndex = 11;
-            this.button6.Text = "Nhận xét";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.MintCream;
-            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox7.Image = global::QuanLyNhaDat.Properties.Resources.nhanxet;
-            this.pictureBox7.Location = new System.Drawing.Point(498, 295);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(150, 144);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 10;
-            this.pictureBox7.TabStop = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox6
             // 
@@ -234,6 +250,16 @@ namespace QuanLyNhaDat
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(825, 200);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 25);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "NV001";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -244,30 +270,6 @@ namespace QuanLyNhaDat
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.button7.Location = new System.Drawing.Point(50, 672);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(149, 38);
-            this.button7.TabIndex = 13;
-            this.button7.Text = "Quản lý hợp đồng";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.White;
-            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox8.Image = global::QuanLyNhaDat.Properties.Resources._5_512;
-            this.pictureBox8.Location = new System.Drawing.Point(50, 522);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(150, 144);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 12;
-            this.pictureBox8.TabStop = false;
             // 
             // NhanVien
             // 
@@ -281,6 +283,7 @@ namespace QuanLyNhaDat
             this.Name = "NhanVien";
             this.Text = "Nhân Viên";
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -288,7 +291,6 @@ namespace QuanLyNhaDat
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

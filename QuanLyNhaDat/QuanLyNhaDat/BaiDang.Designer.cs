@@ -64,6 +64,10 @@ namespace QuanLyNhaDat
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.buttonHuy = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.DataLoad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -77,6 +81,9 @@ namespace QuanLyNhaDat
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Aqua;
+            this.panel1.Controls.Add(this.buttonSave);
+            this.panel1.Controls.Add(this.buttonHuy);
+            this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.DataLoad);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
@@ -91,6 +98,7 @@ namespace QuanLyNhaDat
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(827, 524);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // DataLoad
             // 
@@ -104,17 +112,21 @@ namespace QuanLyNhaDat
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Delete});
             this.dataGridView1.Location = new System.Drawing.Point(7, 14);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(761, 197);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button5.Location = new System.Drawing.Point(522, 248);
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.Location = new System.Drawing.Point(520, 193);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(181, 41);
@@ -126,6 +138,7 @@ namespace QuanLyNhaDat
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.Location = new System.Drawing.Point(745, 247);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(68, 40);
@@ -390,7 +403,8 @@ namespace QuanLyNhaDat
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button2.Location = new System.Drawing.Point(289, 246);
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Location = new System.Drawing.Point(288, 193);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(181, 41);
@@ -402,8 +416,9 @@ namespace QuanLyNhaDat
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.button1.Location = new System.Drawing.Point(49, 247);
+            this.button1.Location = new System.Drawing.Point(49, 192);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(186, 42);
@@ -416,7 +431,7 @@ namespace QuanLyNhaDat
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.MintCream;
             this.pictureBox2.Image = global::QuanLyNhaDat.Properties.Resources._81_819571_icon_blog_blog_hd_png_download;
-            this.pictureBox2.Location = new System.Drawing.Point(289, 54);
+            this.pictureBox2.Location = new System.Drawing.Point(288, 14);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(182, 170);
@@ -428,7 +443,7 @@ namespace QuanLyNhaDat
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.MintCream;
             this.pictureBox1.Image = global::QuanLyNhaDat.Properties.Resources.business_costume_male_man_office_user_icon_1320196264882354682;
-            this.pictureBox1.Location = new System.Drawing.Point(49, 54);
+            this.pictureBox1.Location = new System.Drawing.Point(48, 14);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(186, 170);
@@ -457,6 +472,57 @@ namespace QuanLyNhaDat
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.button6.Location = new System.Drawing.Point(49, 246);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(186, 42);
+            this.button6.TabIndex = 9;
+            this.button6.Text = "Chỉnh sửa";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // buttonHuy
+            // 
+            this.buttonHuy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonHuy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonHuy.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.buttonHuy.Location = new System.Drawing.Point(288, 247);
+            this.buttonHuy.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonHuy.Name = "buttonHuy";
+            this.buttonHuy.Size = new System.Drawing.Size(181, 42);
+            this.buttonHuy.TabIndex = 10;
+            this.buttonHuy.Text = "Hủy";
+            this.buttonHuy.UseVisualStyleBackColor = false;
+            this.buttonHuy.Click += new System.EventHandler(this.buttonHuy_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSave.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.buttonSave.Location = new System.Drawing.Point(520, 245);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(186, 42);
+            this.buttonSave.TabIndex = 11;
+            this.buttonSave.Text = "Lưu thông tin";
+            this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 125;
             // 
             // BaiDang
             // 
@@ -523,5 +589,9 @@ namespace QuanLyNhaDat
         private System.Windows.Forms.TextBox ErrorMaNha;
         private System.Windows.Forms.Panel DataLoad;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonHuy;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }

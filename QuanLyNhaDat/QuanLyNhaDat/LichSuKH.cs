@@ -26,7 +26,7 @@ namespace QuanLyNhaDat
 
         private void LichSuKH_Load(object sender, EventArgs e)
         {
-            String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=KhachHang;Password=A";
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=KhachHang;Password=A";
 
             sqlCon = new SqlConnection(strConnect);
             sqlCon.Open();

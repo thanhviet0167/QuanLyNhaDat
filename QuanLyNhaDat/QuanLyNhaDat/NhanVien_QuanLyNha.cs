@@ -22,7 +22,7 @@ namespace QuanLyNhaDat
         String MaNha = "";
         private void GetAll()
         {
-            String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=NhanVien;Password=C";
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=NhanVien;Password=C";
 
             sqlCon = new SqlConnection(strConnect);
             sqlCon.Open();
@@ -45,7 +45,7 @@ namespace QuanLyNhaDat
         {
             if(this.MaNha.Length > 0)
             {
-                String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True";
+                String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;";
                 sqlCon = new SqlConnection(strConnect);
                 sqlCon.Open();
                 SqlCommand cmd = new SqlCommand("UpdateTienThue_T1_fix", sqlCon);
@@ -61,7 +61,7 @@ namespace QuanLyNhaDat
 
         private void SaveThongTin(String _MaNha)
         {
-            String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=NhanVien;Password=C";
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=NhanVien;Password=C";
 
             sqlCon = new SqlConnection(strConnect);
             sqlCon.Open();
@@ -86,6 +86,7 @@ namespace QuanLyNhaDat
         private void NhanVien_ThueNha_Load(object sender, EventArgs e)
         {
             buttonSave.Visible = false;
+            buttonHuy.Visible = false;
             txtDiaChi.Enabled = false;
             txtThongTin.Enabled = false;
             txtTienThue.Enabled = false;
@@ -103,6 +104,7 @@ namespace QuanLyNhaDat
         private void buttonChinhSua_Click(object sender, EventArgs e)
         {
             buttonSave.Visible = true;
+            buttonHuy.Visible = true;
             txtDiaChi.Enabled = true;
             txtThongTin.Enabled = true;
             txtTienThue.Enabled = true;
@@ -146,7 +148,7 @@ namespace QuanLyNhaDat
                 {
                     if(this.MaNha.Length > 0)
                     {
-                        String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True";
+                        String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;";
                         sqlCon = new SqlConnection(strConnect);
                         sqlCon.Open();
                         string sqldelete = "DELETE FROM NHA WHERE MaNha = N'" + this.MaNha + "'";
@@ -166,7 +168,7 @@ namespace QuanLyNhaDat
             }
             if (dataGridView1.Columns[e.ColumnIndex].Name == "XemTinhTrang")
             {
-                String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True";
+                String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;";
                 sqlCon = new SqlConnection(strConnect);
                 sqlCon.Open();
                 
@@ -246,7 +248,7 @@ namespace QuanLyNhaDat
         {
             if (this.MaNha.Length > 0)
             {
-                String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True";
+                String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True";
                 sqlCon = new SqlConnection(strConnect);
                 sqlCon.Open();
                 SqlCommand cmd = new SqlCommand("UpdateTienThueNha_T2_fix", sqlCon);
@@ -264,7 +266,7 @@ namespace QuanLyNhaDat
         {
             if (this.MaNha.Length > 0)
             {
-                String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True";
+                String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True";
                 sqlCon = new SqlConnection(strConnect);
                 sqlCon.Open();
                 SqlCommand cmd = new SqlCommand("UpdateTinhTrang_T1_fix", sqlCon);
@@ -277,6 +279,138 @@ namespace QuanLyNhaDat
                 this.GetAll();
 
             }
+        }
+
+        private void buttonHuy_Click(object sender, EventArgs e)
+        {
+            this.GetAll();
+            buttonSave.Visible = false;
+            buttonHuy.Visible = false;
+            txtDiaChi.Enabled = false;
+            txtThongTin.Enabled = false;
+            txtTienThue.Enabled = false;
+            checkTinhTrang0.Enabled = false;
+            checkTinhTrang1.Enabled = false;
+            numericSoPhong.Enabled = false;
+            txtNgayDangKy.Enabled = false;
+            txtNgayHetHan.Enabled = false;
+
+
+            txtDiaChi.Text = "";
+            txtThongTin.Text = "";
+            txtTienThue.Text = "";
+            checkTinhTrang0.Checked = false;
+            checkTinhTrang1.Checked = false;
+            numericSoPhong.Value = 0;
+            txtNgayDangKy.Text = "";
+            txtNgayHetHan.Text = "";
+
+            buttonChinhSua.Visible = false;
+            buttonGiam.Visible = true;
+            buttonTang.Visible = true;
+            buttonThemNha.Visible = true;
+            buttonChinhSua.Visible = true;
+            button1.Visible = true;
+        }
+
+        private void Error_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void numericSoPhong_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNgayHetHan_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNgayDangKy_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkTinhTrang1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkTinhTrang0_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTienThue_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtThongTin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDiaChi_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

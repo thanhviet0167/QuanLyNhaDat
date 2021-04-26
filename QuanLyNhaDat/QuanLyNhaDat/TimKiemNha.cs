@@ -19,9 +19,23 @@ namespace QuanLyNhaDat
         }
         SqlConnection sqlCon = null;
 
+
+
+        public void UpdateTinhTrang(string manha)
+        {
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=NhanVien;Password=C";
+
+            sqlCon = new SqlConnection(strConnect);
+            sqlCon.Open();  
+            string sqlUpdate = "UPDATE NHA SET TinhTrang=" + 1 + " Where MaNha = N'"+ manha +"'";
+            SqlCommand cmd = new SqlCommand(sqlUpdate, sqlCon);
+            cmd.ExecuteNonQuery();
+            sqlCon.Close();
+            this.GetAll();
+        }
         private void GetAll()
         {
-            String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=KhachHang;Password=A";
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=KhachHang;Password=A";
 
             sqlCon = new SqlConnection(strConnect);
             sqlCon.Open();
@@ -172,7 +186,7 @@ namespace QuanLyNhaDat
             }
 
 
-            String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=KhachHang;Password=A";
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=KhachHang;Password=A";
 
             sqlCon = new SqlConnection(strConnect);
             sqlCon.Open();
@@ -240,7 +254,7 @@ namespace QuanLyNhaDat
                     Console.Out.WriteLine(dataGridView1.Rows[e.RowIndex].Cells["MaNha"].FormattedValue.ToString());
                     string ngay = DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day;
                     Console.Out.WriteLine(ngay);
-                    String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=NhanVien;Password=C";
+                    String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=NhanVien;Password=C";
 
                     sqlCon = new SqlConnection(strConnect);
                     sqlCon.Open();
@@ -281,6 +295,7 @@ namespace QuanLyNhaDat
                     sqlCon.Close();
 
                     MessageBox.Show("Mua nha thanh cong");
+                    this.UpdateTinhTrang(dataGridView1.Rows[e.RowIndex].Cells["MaNha"].FormattedValue.ToString());
 
 
                 }
@@ -297,7 +312,7 @@ namespace QuanLyNhaDat
 
                         Console.Out.WriteLine(dataGridView1.Rows[e.RowIndex].Cells["MaNha"].FormattedValue.ToString());
 
-                        String strConnect = @"Data Source=DESKTOP-EIVACRQ\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Persist Security Info=True;User ID=NhanVien;Password=C";
+                        String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=NhanVien;Password=C";
 
                         sqlCon = new SqlConnection(strConnect);
                         sqlCon.Open();
@@ -338,7 +353,7 @@ namespace QuanLyNhaDat
                         cmd_tmp.ExecuteNonQuery();
                         sqlCon.Close();
                         MessageBox.Show("Thue nha thanh cong");
-
+                        this.UpdateTinhTrang(dataGridView1.Rows[e.RowIndex].Cells["MaNha"].FormattedValue.ToString());
                     }
 
                 }
