@@ -19,3 +19,9 @@ D:\HQTCSDL\QuanLyNhaDat\QuanLyNhaDat\obj\Debug\QuanLyNhaDat.ThemNhacs.resources
 D:\HQTCSDL\QuanLyNhaDat\QuanLyNhaDat\obj\Debug\QuanLyNhaDat.NhanVien_QuanLyNha.resources
 D:\HQTCSDL\QuanLyNhaDat\QuanLyNhaDat\obj\Debug\QuanLyNhaDat.QuanLyKH.resources
 D:\HQTCSDL\QuanLyNhaDat\QuanLyNhaDat\obj\Debug\QuanLyNhaDat.ThemKH.resources
+D:\HQTCSDL\QuanLyNhaDat\QuanLyNhaDat\obj\Debug\QuanLyNhaDat.QuanLyMuaNha.resources
+D:\HQTCSDL\QuanLyNhaDat\QuanLyNhaDat\obj\Debug\QuanLyNhaDat.QuanLyThueNha.resources
+D:\HQTCSDL\QuanLyNhaDat\QuanLyNhaDat\obj\Debug\QuanLyNhaDat.QuanLyNhanXet.resources
+D:\HQTCSDL\QuanLyNhaDat\QuanLyNhaDat\obj\Debug\QuanLyNhaDat.ThemNhanXet.resources
+D:\HQTCSDL\QuanLyNhaDat\QuanLyNhaDat\obj\Debug\QuanLyNhaDat.QuanLyHopDong.resources
+D:\HQTCSDL\QuanLyNhaDat\QuanLyNhaDat\obj\Debug\QuanLyNhaDat.ThemHopDong.resources

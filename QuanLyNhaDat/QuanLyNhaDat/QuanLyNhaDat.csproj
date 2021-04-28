@@ -90,11 +90,41 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuanLyHopDong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyHopDong.Designer.cs">
+      <DependentUpon>QuanLyHopDong.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuanLyKH.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="QuanLyKH.Designer.cs">
       <DependentUpon>QuanLyKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyMuaNha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyMuaNha.Designer.cs">
+      <DependentUpon>QuanLyMuaNha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyNhanXet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyNhanXet.Designer.cs">
+      <DependentUpon>QuanLyNhanXet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyThueNha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyThueNha.Designer.cs">
+      <DependentUpon>QuanLyThueNha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThemHopDong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemHopDong.Designer.cs">
+      <DependentUpon>ThemHopDong.cs</DependentUpon>
     </Compile>
     <Compile Include="ThemKH.cs">
       <SubType>Form</SubType>
@@ -107,6 +137,12 @@
     </Compile>
     <Compile Include="ThemNhacs.Designer.cs">
       <DependentUpon>ThemNhacs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThemNhanXet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemNhanXet.Designer.cs">
+      <DependentUpon>ThemNhanXet.cs</DependentUpon>
     </Compile>
     <Compile Include="ThongTinKH.cs">
       <SubType>Form</SubType>
@@ -151,14 +187,32 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="QuanLyHopDong.resx">
+      <DependentUpon>QuanLyHopDong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QuanLyKH.resx">
       <DependentUpon>QuanLyKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyMuaNha.resx">
+      <DependentUpon>QuanLyMuaNha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyNhanXet.resx">
+      <DependentUpon>QuanLyNhanXet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyThueNha.resx">
+      <DependentUpon>QuanLyThueNha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemHopDong.resx">
+      <DependentUpon>ThemHopDong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThemKH.resx">
       <DependentUpon>ThemKH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThemNhacs.resx">
       <DependentUpon>ThemNhacs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemNhanXet.resx">
+      <DependentUpon>ThemNhanXet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThongTinKH.resx">
       <DependentUpon>ThongTinKH.cs</DependentUpon>

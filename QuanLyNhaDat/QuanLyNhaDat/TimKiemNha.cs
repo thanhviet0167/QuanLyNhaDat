@@ -62,6 +62,9 @@ namespace QuanLyNhaDat
             comboBoxLoaiNha.DataSource = listtype;
             List<string> address = new List<string>() { "Quan 1", "Quan 2", "Quan 3", "Quan 4" , "Quan 5", "Quan 7", "Quan 8", "Quan 10"};
             comboBoxKhuVuc.DataSource = address;
+            comboBoxGiaNha.Text = "";
+            comboBoxKhuVuc.Text = "";
+            comboBoxLoaiNha.Text = "";
             this.GetAll();
         //    dataGridView1.Visible = false;
 

@@ -17,7 +17,7 @@ namespace QuanLyNhaDat
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
          //   Application.Run(new Form2());
-            Application.Run(new QuanLyKH());
+            Application.Run(new QuanLyHopDong());
             
         }
     }
