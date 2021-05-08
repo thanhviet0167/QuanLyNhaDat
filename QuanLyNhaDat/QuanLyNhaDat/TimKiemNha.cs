@@ -284,15 +284,21 @@ namespace QuanLyNhaDat
                     ///
                     sqlCon = new SqlConnection(strConnect);
                     sqlCon.Open();
-                    string sqlInsert = "INSERT INTO MUA_NHA VALUES (@MaMua, @MaKH, @MaNha, @GiaBan, @NgayMua, @DieuKien)";
-                    SqlCommand cmd_tmp = new SqlCommand(sqlInsert, sqlCon);
-
-                    cmd_tmp.Parameters.AddWithValue("MaMua", new_MaMua);
-                    cmd_tmp.Parameters.AddWithValue("MaKH", "KH001");
-                    cmd_tmp.Parameters.AddWithValue("MaNha", dataGridView1.Rows[e.RowIndex].Cells["MaNha"].FormattedValue.ToString());
-                    cmd_tmp.Parameters.AddWithValue("GiaBan", Convert.ToDouble(dataGridView1.Rows[e.RowIndex].Cells["TienThue"].FormattedValue.ToString())*3);
-                    cmd_tmp.Parameters.AddWithValue("NgayMua", ngay);
-                    cmd_tmp.Parameters.AddWithValue("DieuKien", "Dat coc 70%");
+                 //   string sqlInsert = "INSERT INTO MUA_NHA VALUES (@MaMua, @MaKH, @MaNha, @GiaBan, @NgayMua, @DieuKien)";
+                    SqlCommand cmd_tmp = new SqlCommand("InsertMuaNha", sqlCon);
+                    cmd_tmp.CommandType = CommandType.StoredProcedure;
+                    cmd_tmp.Parameters.Add("@mamua", SqlDbType.NVarChar).Value = new_MaMua;
+                    cmd_tmp.Parameters.Add("@makh", SqlDbType.NVarChar).Value = "KH001";
+                    cmd_tmp.Parameters.Add("@manha", SqlDbType.NVarChar).Value = dataGridView1.Rows[e.RowIndex].Cells["MaNha"].FormattedValue.ToString();
+                    cmd_tmp.Parameters.Add("@tien", SqlDbType.NVarChar).Value = Convert.ToDouble(dataGridView1.Rows[e.RowIndex].Cells["TienThue"].FormattedValue.ToString());
+                    cmd_tmp.Parameters.Add("@ngay", SqlDbType.NVarChar).Value = ngay;
+                    cmd_tmp.Parameters.Add("@dieukien", SqlDbType.NVarChar).Value = "Dat coc 70%";
+                    //    cmd_tmp.Parameters.AddWithValue("MaMua", new_MaMua);
+                    //    cmd_tmp.Parameters.AddWithValue("MaKH", "KH001");
+                    //    cmd_tmp.Parameters.AddWithValue("MaNha", dataGridView1.Rows[e.RowIndex].Cells["MaNha"].FormattedValue.ToString());
+                    //    cmd_tmp.Parameters.AddWithValue("GiaBan", Convert.ToDouble(dataGridView1.Rows[e.RowIndex].Cells["TienThue"].FormattedValue.ToString())*3);
+                    //    cmd_tmp.Parameters.AddWithValue("NgayMua", ngay);
+                    //    cmd_tmp.Parameters.AddWithValue("DieuKien", "Dat coc 70%");
 
                     cmd_tmp.ExecuteNonQuery();
                     sqlCon.Close();
@@ -428,6 +434,27 @@ namespace QuanLyNhaDat
         private void button3_Click(object sender, EventArgs e)
         {
             this.GetAll();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;";
+            sqlCon = new SqlConnection(strConnect);
+            sqlCon.Open();
+
+            SqlCommand cmd = new SqlCommand("DemNha_KH_T1", sqlCon);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@makh", SqlDbType.NVarChar).Value = "KH001";
+            cmd.Parameters.Add("@nb", SqlDbType.Int).Direction = ParameterDirection.Output;
+            cmd.Parameters.Add("@nb1", SqlDbType.Bit).Direction = ParameterDirection.ReturnValue;
+            //    cmd.Parameters.Add("@nb2", SqlDbType.Bit).Direction = ParameterDirection.ReturnValue;
+            cmd.ExecuteNonQuery();
+            int nb = Convert.ToInt32(cmd.Parameters["@nb"].Value);
+            MessageBox.Show("So nha so huu: " + cmd.Parameters["@nb1"].Value + " (" + nb + " ngoi nha)");
+
+
+            sqlCon.Close();
         }
     }
 }

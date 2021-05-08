@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace QuanLyNhaDat
 {
@@ -20,6 +21,7 @@ namespace QuanLyNhaDat
         }
         SqlConnection sqlCon = null;
         String MaNha = "";
+        string MaCN = "";
         private void GetAll()
         {
             String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=NhanVien;Password=C";
@@ -40,6 +42,27 @@ namespace QuanLyNhaDat
             dataGridView1.Columns["MaCN"].Visible = false;
 
             sqlCon.Close();
+        }
+        private Boolean check_exist_MaChuNha(String MaChuNha)
+        {
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;User ID=NhanVien;Password=C";
+
+            sqlCon = new SqlConnection(strConnect);
+            sqlCon.Open();
+
+            string sqlSelect = "SELECT * FROM CHU_NHA";
+            SqlCommand cmd = new SqlCommand(sqlSelect, sqlCon);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                if (Convert.ToString(dr["MaChuNha"]).Equals(MaChuNha))
+                {
+                    return true;
+                }
+            }
+
+            sqlCon.Close();
+            return false;
         }
         private void button3_Click(object sender, EventArgs e)
         {
@@ -130,7 +153,8 @@ namespace QuanLyNhaDat
             txtNgayHetHan.Text = dataGridView1.Rows[e.RowIndex].Cells["NgayHetHan"].FormattedValue.ToString();
             numericSoPhong.Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["SoPhong"].FormattedValue.ToString());
             this.MaNha = dataGridView1.Rows[e.RowIndex].Cells["MaNha"].FormattedValue.ToString();
-           
+            this.MaCN = dataGridView1.Rows[e.RowIndex].Cells["MaChuNha"].FormattedValue.ToString();
+
             if (dataGridView1.Rows[e.RowIndex].Cells["TinhTrang"].FormattedValue.ToString() == "False")
             {
                 checkTinhTrang0.Checked = true;
@@ -173,14 +197,14 @@ namespace QuanLyNhaDat
                 sqlCon.Open();
                 
                 SqlCommand cmd = new SqlCommand("Xem_Tinh_Trang_T2_fix", sqlCon);
-             //   cmd.CommandTimeout = 0;
+             
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@manha", SqlDbType.NVarChar).Value = this.MaNha;
                 cmd.Parameters.Add("@tinhtrang", SqlDbType.Bit).Direction = ParameterDirection.ReturnValue;
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Tinh trang(0 chua thue, 1 da thue): " + cmd.Parameters["@tinhtrang"].Value);
                 Console.Out.WriteLine(cmd.Parameters["@tinhtrang"].Value);
-                Console.Out.WriteLine("Hello");
+                Console.Out.WriteLine(this.MaNha);
                 sqlCon.Close();
                
             }    
@@ -411,6 +435,65 @@ namespace QuanLyNhaDat
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonDoiMCN_Click(object sender, EventArgs e)
+        {
+            string mess = "Nhap ma chu nha moi", title = "Thay doi ma chu nha";
+            if(this.MaCN.Length > 0)
+            {
+                object value;
+                value = Interaction.InputBox(mess,title,this.MaCN);
+                if(((string)value).Length > 0)
+                {
+                    if(this.check_exist_MaChuNha((string)value))
+                    {
+                        String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True";
+                        sqlCon = new SqlConnection(strConnect);
+                        sqlCon.Open();
+                        SqlCommand cmd = new SqlCommand("UpdateMCN_T2_fix", sqlCon);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@manha", SqlDbType.NVarChar).Value = this.MaNha;
+                        cmd.Parameters.Add("@machunha", SqlDbType.NVarChar).Value = (string)value;
+
+                        cmd.ExecuteNonQuery();
+                        sqlCon.Close();
+                        this.GetAll();
+                        Microsoft.VisualBasic.Interaction.MsgBox("Thay doi chu nha thanh cong", MsgBoxStyle.OkOnly);
+                    }
+                    else
+                    {
+                        Microsoft.VisualBasic.Interaction.MsgBox("Ma chu nha khong ton tai", MsgBoxStyle.OkOnly);
+                    }
+                    
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ban chua chon doi tuong");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;";
+            sqlCon = new SqlConnection(strConnect);
+            sqlCon.Open();
+
+            SqlCommand cmd = new SqlCommand("XemTTNha_T1_fix", sqlCon);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@manha", SqlDbType.NVarChar).Value = this.MaNha;
+            cmd.Parameters.Add("@tienthue", SqlDbType.Bit).Direction = ParameterDirection.ReturnValue;
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Tien thue: " + cmd.Parameters["@tienthue"].Value);
+          
+            sqlCon.Close();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            this.GetAll();
         }
     }
 }

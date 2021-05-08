@@ -145,7 +145,28 @@ namespace QuanLyNhaDat
 
                 }
             }
-                  
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "SoNhaSoHuu")
+            {
+                String strConnect = @"Data Source=DESKTOP-7O9O0JV\SQLEXPRESS;Initial Catalog=QuanLyNhaDat;Integrated Security=True;";
+                sqlCon = new SqlConnection(strConnect);
+                sqlCon.Open();
+
+                SqlCommand cmd = new SqlCommand("DemNha_KH_T1", sqlCon);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@makh", SqlDbType.NVarChar).Value = this.maKh;
+                cmd.Parameters.Add("@nb", SqlDbType.Int).Direction = ParameterDirection.Output;
+               cmd.Parameters.Add("@nb1", SqlDbType.Bit).Direction = ParameterDirection.ReturnValue;
+            //    cmd.Parameters.Add("@nb2", SqlDbType.Bit).Direction = ParameterDirection.ReturnValue;
+                cmd.ExecuteNonQuery();
+                int nb = Convert.ToInt32(cmd.Parameters["@nb"].Value);
+                MessageBox.Show("So nha so huu: " + cmd.Parameters["@nb1"].Value + " (" + nb + " ngoi nha)");
+               
+                
+                sqlCon.Close();
+            }    
+
+
         }
 
         private void buttonChinhSua_Click(object sender, EventArgs e)

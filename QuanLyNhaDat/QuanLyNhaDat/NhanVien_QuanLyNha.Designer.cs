@@ -59,6 +59,9 @@ namespace QuanLyNhaDat
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonDoiMCN = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericSoPhong)).BeginInit();
@@ -68,6 +71,8 @@ namespace QuanLyNhaDat
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.buttonDoiMCN);
             this.panel1.Controls.Add(this.buttonHuy);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.Error);
@@ -95,7 +100,7 @@ namespace QuanLyNhaDat
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(40, 38);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(702, 560);
+            this.panel1.Size = new System.Drawing.Size(702, 634);
             this.panel1.TabIndex = 6;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -103,7 +108,7 @@ namespace QuanLyNhaDat
             // 
             this.buttonHuy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.buttonHuy.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonHuy.Location = new System.Drawing.Point(266, 216);
+            this.buttonHuy.Location = new System.Drawing.Point(244, 273);
             this.buttonHuy.Name = "buttonHuy";
             this.buttonHuy.Size = new System.Drawing.Size(110, 28);
             this.buttonHuy.TabIndex = 24;
@@ -114,7 +119,7 @@ namespace QuanLyNhaDat
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.PanWest;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(105, 220);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 28);
@@ -138,7 +143,7 @@ namespace QuanLyNhaDat
             // buttonThemNha
             // 
             this.buttonThemNha.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.buttonThemNha.Cursor = System.Windows.Forms.Cursors.PanWest;
+            this.buttonThemNha.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonThemNha.Location = new System.Drawing.Point(522, 186);
             this.buttonThemNha.Name = "buttonThemNha";
             this.buttonThemNha.Size = new System.Drawing.Size(111, 28);
@@ -152,7 +157,7 @@ namespace QuanLyNhaDat
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Navy;
-            this.label9.Location = new System.Drawing.Point(263, 247);
+            this.label9.Location = new System.Drawing.Point(268, 304);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(205, 32);
             this.label9.TabIndex = 20;
@@ -165,7 +170,7 @@ namespace QuanLyNhaDat
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Xoa,
             this.XemTinhTrang});
-            this.dataGridView1.Location = new System.Drawing.Point(26, 282);
+            this.dataGridView1.Location = new System.Drawing.Point(30, 339);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -194,7 +199,7 @@ namespace QuanLyNhaDat
             // buttonGiam
             // 
             this.buttonGiam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.buttonGiam.Cursor = System.Windows.Forms.Cursors.PanWest;
+            this.buttonGiam.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonGiam.Location = new System.Drawing.Point(382, 186);
             this.buttonGiam.Name = "buttonGiam";
             this.buttonGiam.Size = new System.Drawing.Size(111, 28);
@@ -206,7 +211,7 @@ namespace QuanLyNhaDat
             // buttonTang
             // 
             this.buttonTang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.buttonTang.Cursor = System.Windows.Forms.Cursors.PanWest;
+            this.buttonTang.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonTang.Location = new System.Drawing.Point(244, 186);
             this.buttonTang.Name = "buttonTang";
             this.buttonTang.Size = new System.Drawing.Size(111, 28);
@@ -218,8 +223,8 @@ namespace QuanLyNhaDat
             // buttonSave
             // 
             this.buttonSave.BackColor = System.Drawing.Color.Cyan;
-            this.buttonSave.Cursor = System.Windows.Forms.Cursors.PanWest;
-            this.buttonSave.Location = new System.Drawing.Point(383, 216);
+            this.buttonSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSave.Location = new System.Drawing.Point(382, 273);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(110, 28);
             this.buttonSave.TabIndex = 16;
@@ -230,7 +235,7 @@ namespace QuanLyNhaDat
             // buttonChinhSua
             // 
             this.buttonChinhSua.BackColor = System.Drawing.Color.Silver;
-            this.buttonChinhSua.Cursor = System.Windows.Forms.Cursors.PanWest;
+            this.buttonChinhSua.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonChinhSua.Location = new System.Drawing.Point(105, 186);
             this.buttonChinhSua.Name = "buttonChinhSua";
             this.buttonChinhSua.Size = new System.Drawing.Size(111, 28);
@@ -404,17 +409,54 @@ namespace QuanLyNhaDat
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // buttonDoiMCN
+            // 
+            this.buttonDoiMCN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonDoiMCN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonDoiMCN.Location = new System.Drawing.Point(243, 220);
+            this.buttonDoiMCN.Name = "buttonDoiMCN";
+            this.buttonDoiMCN.Size = new System.Drawing.Size(111, 28);
+            this.buttonDoiMCN.TabIndex = 25;
+            this.buttonDoiMCN.Text = "Đổi chủ nhà";
+            this.buttonDoiMCN.UseVisualStyleBackColor = false;
+            this.buttonDoiMCN.Click += new System.EventHandler(this.buttonDoiMCN_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Location = new System.Drawing.Point(382, 220);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(111, 28);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Xem tiền thuê";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.Location = new System.Drawing.Point(797, 377);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(135, 28);
+            this.button3.TabIndex = 18;
+            this.button3.Text = "Danh sách nhà";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
             // NhanVien_QuanLyNha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(972, 617);
+            this.ClientSize = new System.Drawing.Size(972, 693);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "NhanVien_QuanLyNha";
-            this.Text = "NhanVien_ThueNha";
+            this.Text = "Quản Lý Nhà";
             this.Load += new System.EventHandler(this.NhanVien_ThueNha_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -458,5 +500,8 @@ namespace QuanLyNhaDat
         private System.Windows.Forms.DataGridViewButtonColumn Xoa;
         private System.Windows.Forms.DataGridViewButtonColumn XemTinhTrang;
         private System.Windows.Forms.Button buttonHuy;
+        private System.Windows.Forms.Button buttonDoiMCN;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
